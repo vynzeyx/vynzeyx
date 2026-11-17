@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>linktree_vínzyy</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Font Awesome for Brand Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body
+  class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 transition-colors duration-300 relative overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+
+  <!-- Background decorative glows -->
+  <div
+    class="fixed top-[-10%] left-[-10%] w-[450px] h-[450px] rounded-full bg-indigo-600/20 blur-[120px] pointer-events-none -z-10 animate-pulse">
+  </div>
+  <div
+    class="fixed bottom-[-10%] right-[-10%] w-[450px] h-[450px] rounded-full bg-purple-600/20 blur-[120px] pointer-events-none -z-10 animate-pulse">
+  </div>
+
+  <!-- Top Action Bar -->
+  <header class="w-full max-w-md flex items-center justify-between mb-4 z-10">
+    <button id="themeToggleBtn" aria-label="Toggle Theme"
+      class="p-2.5 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 backdrop-blur-md transition-all shadow-sm active:scale-95">
+      <i data-lucide="sun" id="themeIcon" class="w-5 h-5"></i>
+    </button>
+    <div class="flex items-center gap-2">
+      <button id="qrBtn" aria-label="Show QR Code"
+        class="p-2.5 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 backdrop-blur-md transition-all shadow-sm active:scale-95">
+        <i data-lucide="qr-code" class="w-5 h-5"></i>
+      </button>
+      <button id="shareBtn" aria-label="Share Link"
+        class="p-2.5 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 backdrop-blur-md transition-all shadow-sm active:scale-95">
+        <i data-lucide="share-2" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="w-full max-w-md flex flex-col items-center z-10 flex-grow">
+
+    <!-- Profile Card -->
+    <div class="flex flex-col items-center text-center mb-6">
+      <!-- Avatar with Gradient Ring -->
+      <div class="relative group cursor-pointer mb-4">
+        <div
+          class="absolute -inset-1 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-sm opacity-75 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+        </div>
+        <img id="profileAvatar" src="avatar.jpg?v=2" alt="Profile Avatar"
+          class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top border-2 border-white/20 shadow-xl">
+        <div class="absolute bottom-1 right-1 bg-emerald-500 w-4 h-4 rounded-full border-2 border-slate-950"
+          title="Online / Aktif"></div>
+      </div>
+
+      <!-- Name & Verified Badge -->
+      <div class="flex items-center gap-1.5 justify-center">
+        <h1 id="profileName" class="text-2xl font-bold tracking-tight text-white">vínzyy</h1>
+        <i data-lucide="badge-check" class="w-5 h-5 text-indigo-400 fill-indigo-400/20" title="Verified"></i>
+      </div>
+
+      <!-- Handle / Tagline -->
+      <p id="profileHandle" class="text-sm font-medium text-indigo-400 mt-0.5">@vynzeyx</p>
+
+      <!-- Bio Description -->
+      <p id="profileBio" class="text-slate-400 text-sm mt-3 px-4 leading-relaxed max-w-sm">
+        ALL LINK DIBAWAH THANKYOU
+      </p>
+    </div>
+
+    <!-- Featured / Highlight Link (Optional highlight) -->
+    <div id="featuredLinkContainer" class="w-full mb-3 hidden">
+      <!-- Injected via JS -->
+    </div>
+
+    <!-- Links List -->
+    <div id="linksList" class="w-full flex flex-col gap-3">
+      <!-- Injected via JS -->
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full max-w-md text-center py-6 text-xs text-slate-500 z-10 flex flex-col items-center gap-1">
+    <p>© <span id="currentYear"></span> <span id="footerName">vínzyy</span>. All rights reserved.</p>
+    <p class="text-[11px] text-slate-600">Dibuat dengan ❤️ • Bisa diedit di <code
+        class="bg-slate-900 px-1 py-0.5 rounded text-slate-400">data.js</code></p>
+  </footer>
+
+  <!-- QR Code Modal -->
+  <div id="qrModal"
+    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+    <div
+      class="bg-slate-900 border border-slate-800 rounded-2xl p-6 max-w-xs w-full text-center shadow-2xl transform scale-95 transition-transform duration-300"
+      id="qrModalCard">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-bold text-white text-base">Scan QR Profile</h3>
+        <button id="closeQrBtn" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="bg-white p-4 rounded-xl flex items-center justify-center shadow-inner mx-auto mb-4">
+        <img id="qrImage" src="" alt="QR Code" class="w-48 h-48">
+      </div>
+      <p class="text-xs text-slate-400 mb-4">Arahkan kamera HP ke QR Code untuk membuka tautan ini langsung.</p>
+      <button id="copyModalLinkBtn"
+        class="w-full py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white flex items-center justify-center gap-2 transition">
+        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+        <span>Salin Tautan</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast"
+    class="fixed bottom-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-indigo-600 text-white px-4 py-2.5 rounded-full text-xs font-semibold shadow-xl flex items-center gap-2 pointer-events-none">
+    <i data-lucide="check-circle" class="w-4 h-4"></i>
+    <span id="toastMessage">Tautan berhasil disalin!</span>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
